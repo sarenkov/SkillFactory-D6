@@ -1,0 +1,5 @@
+/django-env
+/.idea
+/Site/p_library/__pycache__
+/Site/p_library/migrations/__pycache__
+/Site/Site/__pycache__
