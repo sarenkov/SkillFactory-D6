@@ -1,0 +1,8 @@
+<div class="bottom bar">
+<div>
+    <a class="nav-item" href="{% url 'animal_shelter:about' %}"><button class="btn btn-success">О нас</button></a>
+    <a class="nav-item" href="{% url 'animal_shelter:contacts' %}"><button class="btn btn-success">Контакты</button></a>
+    <a class="nav-item" href="{% url 'animal_shelter:features' %}"><button class="btn btn-warning">Подать объявление</button></a>
+</div> 
+    {% include 'animal_shelter/footer/social.html' %}
+</div>

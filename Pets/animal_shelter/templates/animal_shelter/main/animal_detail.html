@@ -1,0 +1,25 @@
+{% extends 'animal_shelter/main_page.html' %}
+{% load static %}
+
+{% block main %}
+<div class="detail-view">
+    <div class="avatar">
+        <h3>{{ animal.name }} </h3>
+        {% if animal.avatar %}
+        <img src="{{ animal.avatar.url }}" alt="Аватар">
+        {% else %}
+        <img src="{% static 'animal_shelter/default/default-animal-logo.jpg' %}" alt="Аватар">
+        {% endif %}
+    </div>
+    <div class="content">
+        <p>Порода: {{ animal.breed }} </p>
+        <p>О животинке: {{ animal.description }}</p>
+        <p>Попал к нам : {{ animal.receipt_date }}</p>
+        {% if animal.pet_owner %}
+        <p>Владелец: <a class="nav-link" href="{% url 'animal_shelter:owner' animal.pet_owner.id %}">{{ animal.pet_owner }}</a></p>
+        {% else %}
+         <p>Владелец: Нет владельца</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

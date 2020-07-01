@@ -1,0 +1,36 @@
+{% extends 'animal_shelter/main_page.html' %}
+{% load static %}
+
+{% block main %}
+<div class="detail-view">
+    <div class="avatar">
+        <h3>{{ owner.name }} </h3>
+        {% if owner.avatar %}
+        <img src="{{ owner.avatar.url }}" alt="Аватар">
+        {% else %}
+        <img src="{% static 'animal_shelter/default/user_avatar_default.png' %}" alt="Аватар">
+        {% endif %}
+    </div>
+    <div class="content">
+        <p>Имя: {{ owner.name }} </p>
+        <p>Фамилия: {{ owner.surname }} </p>
+        {% if owner.mobile %} 
+        <p>Мобильный телефон: {{ owner.mobile }} </p>
+        {% else %}
+        <p>Мобильный телефон: - </p>
+        {% endif %}
+
+        {% if owner.address %} 
+        <p>Адрес: {{ owner.address }} </p>
+        {% else %}
+        <p>Адрес: - </p>
+        {% endif %}
+
+        {% if owner.email %} 
+        <p>Электронная почта: {{ owner.email }} </p>
+        {% else %}
+        <p>Электронная почта: - </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

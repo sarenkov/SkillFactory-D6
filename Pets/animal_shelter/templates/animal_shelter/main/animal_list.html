@@ -1,0 +1,23 @@
+{% extends 'animal_shelter/base_template.html' %}
+{% load static %}
+
+{% block main %}
+{% if animals %}
+<div class="grid-container">
+    {% for animal in animals %}
+    <a class="nav-link" href="{% url 'animal_shelter:animal' animal.id %}">
+        <div class="animal-item">
+            {% if animal.avatar %}
+            <img src="{{ animal.avatar.url }}">
+            {% else %}
+            <img src="{% static 'animal_shelter/default/default-animal-logo.jpg' %}">
+            {% endif %}
+            <h4>{{ animal.name }}</h4>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<h3 align="center" style="margin:15vh 0;">Ничего не найдено</h3>
+{% endif %}
+{% endblock %}

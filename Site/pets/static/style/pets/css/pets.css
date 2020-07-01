@@ -1,0 +1,20 @@
+.grid-container {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    grid-gap: 2vw;
+
+}
+
+.nav-link {
+    font-size: 1.2em;
+}
+
+.navbar-brand{
+    font-size: 1.6em;
+}
+
+
+
+
+
+

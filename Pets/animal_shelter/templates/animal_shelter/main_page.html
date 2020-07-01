@@ -1,0 +1,25 @@
+{% extends 'animal_shelter/base_template.html' %}
+
+{% block title_page %}
+{% include 'animal_shelter/titles/title_main_page.html' %}
+{% endblock title_page %}
+
+{% block header %}
+{% include 'animal_shelter/header/header_main_page.html' %}
+{% endblock header %}
+
+{% block main %}
+{% include 'animal_shelter/main/animal_list.html' %}
+{% endblock main %}
+
+{% block footer %}
+{% include 'animal_shelter/footer/footer_main_page.html' %}
+{% endblock footer %}
+
+{% block nav %}
+{% include 'animal_shelter/header/nav.html' %}    
+{% endblock nav %}
+
+{% block social %}
+{% include 'animal_shelter/footer/social.html' %}    
+{% endblock social %}

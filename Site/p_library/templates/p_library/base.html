@@ -17,6 +17,11 @@
     <a href="{% url 'p_library:publishers' %}" >Издатели</a>
     <a href="{% url 'p_library:readers' %}" >Читатели</a>
 </header>
+    {# Это кусок кода, который стал временно не нужен, но удалять жалко
+    {% for user in users %}
+        ...
+    {% endfor %}
+#}
 <main>
 {% block content %}
 {% endblock %}

@@ -1,0 +1,12 @@
+
+{% load static %}
+
+<script src="{% static 'animal_shelter/js/script.js' %}" async="async"></script>
+
+<ul class="nav justify-content-center nav-tabs">       
+    <li class="nav-item tab-link"><a class="nav-link" href="{% url 'animal_shelter:dogs' %}">Собаки</a></li>
+    <li class="nav-item tab-link"><a class="nav-link" href="{% url 'animal_shelter:cats' %}">Кошки</a></li>
+    <li class="nav-item tab-link"><a class="nav-link" href="{% url 'animal_shelter:parrots' %}">Попугаи</a></li>
+</ul>
+
+
