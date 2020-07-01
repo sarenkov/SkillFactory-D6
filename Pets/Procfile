@@ -1,0 +1,4 @@
+release: cd Pets
+release: python manage.py migrate
+release: python manage.py loaddata dump.json
+web: gunicorn Pets.Pets.wsgi
