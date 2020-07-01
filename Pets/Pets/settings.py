@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'animalshelterskillfactory
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nonstatic'
+    'whitenoise.runserver_nostatic'
     'animal_shelter',
     'django.contrib.admin',
     'django.contrib.auth',
