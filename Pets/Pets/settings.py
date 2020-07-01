@@ -19,16 +19,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b#&!*9*p(sa!ecd-fp!fpcjm+75zr(#alb3+^wu7_oxuy#d!r='
-
+# SECRET_KEY = 'b#&!*9*p(sa!ecd-fp!fpcjm+75zr(#alb3+^wu7_oxuy#d!r='
+SECRET_KEY = os.environ.get('SECRET_KEY ')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'animalshelterskillfactoryd6.herokuapp.com']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nonstatic'
     'animal_shelter',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.moddleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,7 +55,7 @@ ROOT_URLCONF = 'Pets.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,20 +77,25 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Pets.wsgi.application'
+WSGI_APPLICATION = 'animalshelterskillfactoryd6.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'django_db_pets',
+#         'USER': 'test',
+#         'PASSWORD': 'test',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432'
+#     }
+# }
+
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_db_pets',
-        'USER': 'test',
-        'PASSWORD': 'test',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
-    }
+'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 # Password validation
@@ -133,3 +140,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/animal_shelter/')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
